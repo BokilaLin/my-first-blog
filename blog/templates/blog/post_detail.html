@@ -6,8 +6,10 @@
             <div class="date">
                 {{ post.published_date }}
             </div>
-        {% endif %}    
+            {% else %}
+            <a class="btn btn-defaul" href="{% url "blog.views.post_publish" post_id=post.pk %}">Publish</a>        {% endif %}    
         <a href="{% url "post_edit" post_id=post.pk %}" class="btn btn-default"><sapn class ="glyphicon glyphicon-pencil"></sapn></a>
+        <a class="btn btn-default" href="{% url "post_remove" post_id=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaks }}</p>
     </div>
